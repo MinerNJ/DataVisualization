@@ -1,0 +1,85 @@
+---
+title: "PollingViz"
+author: "Nick Miner"
+date: "February 16, 2019"
+output: pdf_document
+---
+#Basic Setup
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(lubridate)
+library(graphics)
+setwd("~/")
+setwd("C:/Users/Nicholas/Documents/School/Pol_3780")
+polls <- read.csv("ohio_polls.csv")
+
+
+##Load Lubridate, a package used for easily manipulating dates.
+```
+
+#Data Manipulation
+```{r}
+polls$Rdate <- mdy(polls$Middate)
+polls$competitiveness <- polls$trump-polls$clinton
+polls$colors = "black"
+polls$colors[polls$competitiveness>0]="red"
+polls$colors[polls$competitiveness<0]="blue"
+
+#Create new columns to measure "competitiveness": the difference
+#between support for Trump and Clinton. Pollers with a positive
+#competitiveness rate show support for Trump, colored red, while
+#negative is support for Clinton, colored blue.
+```
+
+#Polygon Setup
+```{r}
+hi.res.date <- approx(polls$Rdate, polls$competitiveness, n=100)$x
+hi.res.comp <- approx(polls$Rdate, polls$competitiveness, n=100)$y
+comp.poly.plus <- hi.res.comp
+comp.poly.minus <- hi.res.comp
+comp.poly.plus[comp.poly.plus < 0] <- 0
+comp.poly.minus[comp.poly.minus>0] <- 0
+x.comp.poly.plus <- c(hi.res.date, rev(hi.res.date))
+y.comp.poly.plus <- c(comp.poly.plus, rep(0, 100))
+x.comp.poly.minus <- c(hi.res.date, rev(hi.res.date))
+y.comp.poly.minus <- c(comp.poly.minus, rep(0,100))
+
+##Creating a polygon for the plot. 
+```
+
+#Plot
+```{r}
+par(bg = "mintcream")
+plot(polls$Rdate, rep(NA, 53), ylim = c(-7, 5), xlab = "Month", 
+ylab = "Num. of Votes Candidate Won By", main = "Ohio Polling of 2016
+Presidential Election")
+polygon(x.comp.poly.plus, y.comp.poly.plus, col="red", border = NA)
+polygon(x.comp.poly.minus, y.comp.poly.minus, col = "blue", border =
+          NA)
+lines(lowess(polls$Rdate, polls$competitiveness), col=polls$colors,
+      lwd = "3")
+text(mdy("March 5, 2016"), 0, "Clinton Wins \nLouisiana Democratic
+     Primary", srt=-45, adj = c(0,0), cex = 0.75)
+text(mdy("May 3, 2016"), 0, "Trump Wins \nIndiana Republic
+     \nPrimary", srt=45, adj = c(.25,.25), cex = 0.75)
+text(mdy("July 12, 2016"), 0, "Bernie Sanders \nEndorses Clinton",
+     srt=-45, adj = c(0,0), cex = 0.75)
+text(mdy("September 26, 2016"), 0, "First Presidential \nDebate",
+     srt=45, adj = c(.75,.5), cex = 0.75)
+legend("bottomright", fill = c("red","blue"), border = c("red",
+"blue"), legend = c("Trump Victories", "Clinton Victories"),
+cex = 0.75)
+grid(NA, NULL, col = "lightgray", lty = "dotted", lwd = par("lwd"),
+     equilogs = TRUE)
+
+##Plotting the polygon. The plot shows the number of votes each
+#candidate won by in the polls, measured by the variable
+#Competitiveness. Several campaign events are listed to show impact
+#on voters.The red abline is a loess regression plot. Loess 
+#regressions are a nonparametric regression technique that are 
+#useful in revealing underlying trends in data. In this case, the
+#overall data shows massive support for Clinton over Trump, but the
+#loess curve shows an overall pattern of increasing support for 
+#Trump over Clinton.
+```
+
