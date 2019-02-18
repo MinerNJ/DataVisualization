@@ -1,0 +1,132 @@
+---
+title: "QuakesAndWells"
+output: pdf_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("~")
+setwd("C:/Users/WeCanCodeIT/wcci/default-workspace/DataVizinR/QuakesAndWells")
+library(maps)
+```
+
+#Intro
+```{r}
+##This dataset examines fracking locations across Oklahoma, Kansas, Texas, Arkansa, New
+##Mexico, Missouri and Colorado, as well as earthquakes in those same states. 
+```
+
+
+#Data Manipulation
+```{r}
+quakes <- read.csv("Quakes.csv")
+wells <- read.csv("Wells.csv")
+quakes1 <- subset(quakes, year==1995|year==1996|year==1997|year==1998|year==1999)
+quakes2 <- subset(quakes, year==2000|year==2001|year==2002|year==2003|year==2004)
+quakes3 <- subset(quakes, year==2005|year==2006|year==2007|year==2008|year==2009)
+quakes4 <- subset(quakes, year==2010|year==2011|year==2012|year==2013|year==2014|year==2015)
+wells1 <- subset(wells, Year==1995|Year==1996|Year==1997|Year==1998|Year==1999)
+wells2 <- subset(wells, Year==2000|Year==2001|Year==2002|Year==2003|Year==2004)
+wells3 <- subset(wells, Year==2005|Year==2006|Year==2007|Year==2008|Year==2009)
+wells4 <- subset(wells, Year==2010|Year==2011|Year==2012|Year==2013|Year==2014|Year==2015)
+
+##Subsetting data into 5-6 year chunks for modeling purposes.
+```
+
+#Visualization
+##Multiple States
+```{r}
+map("state", c("Oklahoma","Kansas","Texas","Arkansas","New Mexico","Missouri",
+               "Colorado"), mar = c(0,0,0,0), fill = TRUE, col = "gray97")
+title("\nEarthquakes After Shale Wells: 1995-1999")
+legend("bottom", legend = c("Wells","Earthquakes"), fill =
+         c("#0000FF","#FF0000"), ncol = 2,cex = .75)
+symbols(quakes1$longitude, quakes1$latitude, fg=NA, bg="#FF000030", circles =
+          2.7^(quakes1$mag), inches= 0.5, add=TRUE) 
+symbols(wells1$Longitude, wells1$Latitude, fg=NA, bg="#0000FF30", circles =
+          wells1$Depth, inches = 0.15, add=TRUE)
+map("state", c("Oklahoma","Kansas","Texas","Arkansas","New Mexico",
+               "Missouri","Colorado"), mar = c(0,0,0,0), fill = TRUE, col = "gray97")
+title("\nEarthquakes After Shale Wells: 2000-2004")
+legend("bottom", legend = c("Wells","Earthquakes"), fill =
+         c("#0000FF","#FF0000"), ncol = 2,cex = .75)
+symbols(quakes2$longitude, quakes2$latitude, fg=NA, bg="#FF000030", circles =
+          2.7^(quakes2$mag), inches= 0.5, add=TRUE) 
+symbols(wells2$Longitude, wells2$Latitude, fg=NA, bg="#0000FF30", circles =
+          wells2$Depth, inches = 0.15, add=TRUE)
+map("state", c("Oklahoma","Kansas","Texas","Arkansas","New Mexico",
+               "Missouri","Colorado"), mar = c(0,0,0,0), fill = TRUE, col = "gray97")
+title("\nEarthquakes After Shale Wells: 2005-2009")
+legend("bottom", legend = c("Wells","Earthquakes"), fill =
+         c("#0000FF","#FF0000"), ncol = 2,cex = .75)
+symbols(quakes3$longitude, quakes3$latitude, fg=NA, bg="#FF000030", circles =
+          2.7^(quakes3$mag), inches= 0.5, add=TRUE) 
+symbols(wells3$Longitude, wells3$Latitude, fg=NA, bg="#0000FF30", circles =
+          wells3$Depth, inches = 0.15, add=TRUE)
+map("state", c("Oklahoma","Kansas","Texas","Arkansas","New Mexico",
+               "Missouri","Colorado"), mar = c(0,0,0,0), fill = TRUE, col = "gray97")
+title("\nEarthquakes After Shale Wells: 2010-2015")
+legend("bottom", legend = c("Wells","Earthquakes"), fill =
+         c("#0000FF","#FF0000"), ncol = 2,cex = .75)
+symbols(quakes4$longitude, quakes4$latitude, fg=NA, bg="#FF000030", circles =
+          2.7^(quakes4$mag), inches= 0.5, add=TRUE) 
+symbols(wells4$Longitude, wells4$Latitude, fg=NA, bg="#0000FF30", circles =
+          wells4$Depth, inches = 0.15, add=TRUE)
+
+##4 maps are created here, each one linked to a specific year set. The red circles indicate 
+##earthquakes, with the size of the circle corresponding roughly to the area of the quake and 
+##the darkness of the red indicating the magnitude. The darker the red the higher the magnitude
+##of the quake. The same rules apply for wells with the color blue. 
+```
+
+##OK Only
+```{r}
+map("state", "Oklahoma")
+title("Earthquakes After Shale Wells in OK: 2010-2015")
+legend("bottom", legend = c("Wells","Earthquakes"), fill =
+         c("#0000FF","#FF0000"), ncol = 2,cex = .75)
+symbols(quakes4$longitude, quakes4$latitude, fg=NA, bg="#FF000030", circles =
+          2.7^(quakes4$mag), inches= 0.5, add=TRUE) 
+symbols(wells4$Longitude, wells4$Latitude, fg=NA, bg="#0000FF30", circles =
+          wells4$Depth, inches = 0.15, add=TRUE)
+```
+
+#Other Figures
+```{r, echo=FALSE}
+"Number of Wells Dug 1995 - 1999:"
+nrow(wells1)
+"Number of Earthquakes 1995 - 1999:"
+nrow(quakes1)
+"Average Quake Magnitude:"
+mean(quakes1$mag)
+"Highest Quake Reported"
+max(quakes1$mag, na.rm = TRUE)
+
+"Number of Wells Dug 2000 - 2004:"
+nrow(wells2)
+"Number of Earthquakes 2000 - 2004:"
+nrow(quakes2)
+"Average Quake Magnitude:"
+mean(quakes2$mag)
+"Highest Quake Reported"
+max(quakes2$mag, na.rm = TRUE)
+
+"Number of Wells Dug 2005 - 2009:"
+nrow(wells3)
+"Number of Earthquakes 2005 - 2009:"
+nrow(quakes3)
+"Average Quake Magnitude:"
+mean(quakes3$mag)
+"Highest Quake Reported"
+max(quakes3$mag, na.rm = TRUE)
+
+"Number of Wells Dug 2010 - 2015:"
+nrow(wells4)
+"Number of Earthquakes 2010 - 2015:"
+nrow(quakes4)
+"Average Quake Magnitude:"
+mean(quakes4$mag)
+"Highest Quake Reported"
+max(quakes4$mag, na.rm = TRUE)
+
+##Here are just some facts from the data for examination.
+```
