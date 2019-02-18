@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.18)  18 FEB 2019 18:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.18)  18 FEB 2019 18:50
 entering extended mode
 **./Q_W.tex
 (Q_W.tex
@@ -741,54 +741,70 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 File: Q_W_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use Q_W_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Q_W_files/figure-latex/unnamed-chunk-3-1.pdf  used on 
-input line 174.
+input line 160.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[1
-
-{C:/Users/WeCanCodeIT/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<Q_W_files/figure-latex/unnamed-chunk-3-2.pdf, id=38, 469.755pt x 325.215pt>
+<Q_W_files/figure-latex/unnamed-chunk-3-2.pdf, id=28, 469.755pt x 325.215pt>
 File: Q_W_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
 <use Q_W_files/figure-latex/unnamed-chunk-3-2.pdf>
 Package pdftex.def Info: Q_W_files/figure-latex/unnamed-chunk-3-2.pdf  used on 
-input line 190.
+input line 161.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[2 <./Q_W_files/figure-latex/unnamed-chunk-3-1.pdf>]
-<Q_W_files/figure-latex/unnamed-chunk-3-3.pdf, id=50, 469.755pt x 325.215pt>
+<Q_W_files/figure-latex/unnamed-chunk-3-3.pdf, id=29, 469.755pt x 325.215pt>
 File: Q_W_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (type pdf)
 <use Q_W_files/figure-latex/unnamed-chunk-3-3.pdf>
 Package pdftex.def Info: Q_W_files/figure-latex/unnamed-chunk-3-3.pdf  used on 
-input line 206.
+input line 162.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[3 <./Q_W_files/figure-latex/unnamed-chunk-3-2.pdf>]
-<Q_W_files/figure-latex/unnamed-chunk-3-4.pdf, id=62, 469.755pt x 325.215pt>
+<Q_W_files/figure-latex/unnamed-chunk-3-4.pdf, id=30, 469.755pt x 325.215pt>
 File: Q_W_files/figure-latex/unnamed-chunk-3-4.pdf Graphic file (type pdf)
 <use Q_W_files/figure-latex/unnamed-chunk-3-4.pdf>
 Package pdftex.def Info: Q_W_files/figure-latex/unnamed-chunk-3-4.pdf  used on 
-input line 222.
+input line 163.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[4 <./Q_W_files/figure-latex/unnamed-chunk-3-3.pdf>]
-<Q_W_files/figure-latex/unnamed-chunk-4-1.pdf, id=74, 469.755pt x 325.215pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--164
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--164
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--164
+[]
+ []
+
+[1
+
+{C:/Users/WeCanCodeIT/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \vbox (44.6926pt too high) has occurred while \output is active []
+
+[2 <./Q_W_files/figure-latex/unnamed-chunk-3-1.pdf> <./Q_W_files/figure-latex/u
+nnamed-chunk-3-2.pdf>] [3 <./Q_W_files/figure-latex/unnamed-chunk-3-3.pdf>]
+<Q_W_files/figure-latex/unnamed-chunk-4-1.pdf, id=70, 469.755pt x 325.215pt>
 File: Q_W_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use Q_W_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: Q_W_files/figure-latex/unnamed-chunk-4-1.pdf  used on 
-input line 248.
+input line 167.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[5 <./Q_W_files/figure-latex/unnamed-chunk-3-4.pdf>] [6 <./Q_W_files/figure-lat
+[4 <./Q_W_files/figure-latex/unnamed-chunk-3-4.pdf>] [5 <./Q_W_files/figure-lat
 ex/unnamed-chunk-4-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 381.
-[7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 381.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
 (Q_W.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 381.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 381.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 300.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
 Package rerunfilecheck Info: File `Q_W.out' has not changed.
 (rerunfilecheck)             Checksum: 6B03D6F301FD42F5DA24F4E627C1361A;652.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 381.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 300.
  ) 
 Here is how much of TeX's memory you used:
- 12672 strings out of 492946
- 188160 string characters out of 3123602
- 299439 words of memory out of 3000000
+ 12671 strings out of 492946
+ 188154 string characters out of 3123602
+ 297439 words of memory out of 3000000
  16428 multiletter control sequences out of 15000+200000
  23387 words of font info for 27 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -800,9 +816,9 @@ lic/lm/lmbx12.pfb><C:/Users/WeCanCodeIT/AppData/Local/Programs/MiKTeX 2.9/fonts
 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Users/WeCanCodeIT/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C:/Users/WeCanCodeIT/AppData/Loc
 al/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Q_W.pdf (7 pages, 1232053 bytes).
+Output written on Q_W.pdf (6 pages, 1224773 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
  4170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

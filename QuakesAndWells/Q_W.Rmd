@@ -34,7 +34,7 @@ wells4 <- subset(wells, Year==2010|Year==2011|Year==2012|Year==2013|Year==2014|Y
 
 #Visualization
 ##Multiple States
-```{r}
+```{r echo=FALSE}
 map("state", c("Oklahoma","Kansas","Texas","Arkansas","New Mexico","Missouri",
                "Colorado"), mar = c(0,0,0,0), fill = TRUE, col = "gray97")
 title("\nEarthquakes After Shale Wells: 1995-1999")
@@ -79,7 +79,7 @@ symbols(wells4$Longitude, wells4$Latitude, fg=NA, bg="#0000FF30", circles =
 ```
 
 ##OK Only
-```{r}
+```{r echo=FALSE}
 map("state", "Oklahoma")
 title("Earthquakes After Shale Wells in OK: 2010-2015")
 legend("bottom", legend = c("Wells","Earthquakes"), fill =
@@ -88,6 +88,9 @@ symbols(quakes4$longitude, quakes4$latitude, fg=NA, bg="#FF000030", circles =
           2.7^(quakes4$mag), inches= 0.5, add=TRUE) 
 symbols(wells4$Longitude, wells4$Latitude, fg=NA, bg="#0000FF30", circles =
           wells4$Depth, inches = 0.15, add=TRUE)
+
+##Since Oklahoma had the majority of the fracking wells dug within its borders, it also 
+##appeared to suffer the most earthquakes. Here only OK is shown.
 ```
 
 #Other Figures
