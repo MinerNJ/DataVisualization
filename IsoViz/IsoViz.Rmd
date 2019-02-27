@@ -1,0 +1,32 @@
+---
+title: "Isolationism"
+output: pdf_document
+---
+#Basic Setup
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(lubridate)
+setwd("~/")
+setwd("C:/Users/WeCanCodeIT/wcci/default-workspace/DataVizinR/IsoViz")
+```
+
+#Data Manipulation
+```{r, echo=FALSE}
+isolationism <- read.csv("isolationism.csv")
+isolationism$Rdate <- mdy(isolationism$date)
+```
+
+#Visualization
+
+```{r, echo=FALSE}
+par(bg = "gray94")
+plot(isolationism$Rdate,isolationism$pct.in.favor,xlab = "Year",ylab = "Percentage in Favor",main = "Percentage of Americans in Favor of Intervention in France", pch=16)
+abline(v = mdy("5/10/1940"),lty=2,col="red")
+abline(v=mdy("6/25/1940"),lty=2,col="blue")
+lines(smooth.spline(isolationism$Rdate[isolationism$Rdate<mdy("5/10/1940")],isolationism$pct.in.favor[isolationism$Rdate<mdy("5/10/1940")],spar=0.3))
+lines(smooth.spline(isolationism$Rdate[isolationism$Rdate>mdy("6/25/1940")],isolationism$pct.in.favor[isolationism$Rdate>mdy("6/25/1940")],spar=2))
+legend("bottomright",legend = c("Beginning of German Invasion","End of German Invasion"),col = c("red","blue"),lty = c(2,2))
+grid(NA, NULL, col = "white", lty = "dotted", lwd = par("lwd"),
+     equilogs = TRUE)
+```
+

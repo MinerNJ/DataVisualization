@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(lubridate)
 library(graphics)
 setwd("~/")
-setwd("C:/Users/Nicholas/Documents/School/Pol_3780")
-polls <- read.csv("ohio_polls.csv")
+setwd("C:/Users/WeCanCodeIT/wcci/default-workspace/DataVizinR/OhioPollingViz")
+polls <- read.csv("ohioPolls.csv")
 
 
 ##Load Lubridate, a package used for easily manipulating dates.
@@ -59,11 +59,11 @@ polygon(x.comp.poly.minus, y.comp.poly.minus, col = "blue", border =
 lines(lowess(polls$Rdate, polls$competitiveness), col=polls$colors,
       lwd = "3")
 text(mdy("March 5, 2016"), 0, "Clinton Wins \nLouisiana Democratic
-     Primary", srt=-45, adj = c(0,0), cex = 0.75)
+     Primary", srt=45, adj = c(0,0), cex = 0.75)
 text(mdy("May 3, 2016"), 0, "Trump Wins \nIndiana Republic
      \nPrimary", srt=45, adj = c(.25,.25), cex = 0.75)
 text(mdy("July 12, 2016"), 0, "Bernie Sanders \nEndorses Clinton",
-     srt=-45, adj = c(0,0), cex = 0.75)
+     srt=45, adj = c(0,0), cex = 0.75)
 text(mdy("September 26, 2016"), 0, "First Presidential \nDebate",
      srt=45, adj = c(.75,.5), cex = 0.75)
 legend("bottomright", fill = c("red","blue"), border = c("red",
