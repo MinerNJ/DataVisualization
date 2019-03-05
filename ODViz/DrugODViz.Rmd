@@ -12,7 +12,7 @@ setwd("C:/Users/WeCanCodeIT/wcci/default-workspace/DataVizinR/ODViz")
 
 #Data Manipulation
 ##Initial Manipulation
-```{r}
+```{r echo=FALSE}
 drugs <- read.csv("drugs.csv",stringsAsFactors = FALSE)
 drugs$estimated <- drugs$Estimated.Age.adjusted.Death.Rate..11.Categories..in.ranges.
 drugs$estimated <- ifelse(drugs$estimated=="0-2",1,drugs$estimated)
@@ -27,10 +27,12 @@ drugs$estimated <- ifelse(drugs$estimated=="16.1-18",9,drugs$estimated)
 drugs$estimated <- ifelse(drugs$estimated=="18.1-20",10,drugs$estimated)
 drugs$estimated <- ifelse(drugs$estimated==">20",11,drugs$estimated)
 drugs$estimated <- as.numeric(drugs$estimated)
+
+##Reading in the data and subsetting based on estimated deaths.
 ```
 
 ##Subsetting
-```{r}
+```{r echo=FALSE}
 data("county.fips")
 drugs2 <-merge(drugs,county.fips,by.x = "FIPS",by.y = "fips")
 
@@ -39,6 +41,10 @@ drugs2014 <- subset(drugs2, drugs2$Year==2014)
 my.colors <- colorRampPalette(c("Green","Red"))(11)
 my.colors2004 <- my.colors[drugs2004$estimated]
 my.colors2014 <- my.colors[drugs2014$estimated]
+
+##Loading map data for counties in the US and then merging the map and drug data. Subsetting
+##the resulting data for years 2004 and 2014. Creating individual color palettes for each 
+##year's estimated mortality rates.
 ```
 
 #2004 Plot
@@ -48,6 +54,8 @@ map("county",regions = drugs2004$polyname,col=my.colors2004,exact = TRUE,fill = 
 map("state",col="White",fill=FALSE,resolution=0,add = TRUE, projection = "mercator")
 title("2004 Drug Poisoning Mortalities Per 100,000 Population")
 legend("bottomleft", legend = c("0-2","2.1-4","4.1-6", "6.1-8", "8.1-10", "10.1-12","12.1-14", "14.1-16", "16.1-18", "18.1-20",">20"), fill = my.colors, col = my.colors2004, title = "Estimated Drug Mortalities Per Color",cex = .75,ncol = 2)
+
+##Plotting the estimated mortalities from drug overdoses in 2004. 
 ```
 
 #2014 Plot
@@ -57,6 +65,8 @@ map("county",regions = drugs2014$polyname,col=my.colors2014,exact = TRUE,fill = 
 map("state",col="White",fill=FALSE,resolution=0,add = TRUE, projection = "mercator")
 title("2014 Drug Poisoning Mortalities Per 100,000 Population")
 legend("bottomleft", legend = c("0-2","2.1-4","4.1-6", "6.1-8", "8.1-10", "10.1-12","12.1-14", "14.1-16", "16.1-18", "18.1-20",">20"), fill = my.colors, col = my.colors2014, title = "Estimated Drug Mortalities Per Color",cex = .75,ncol = 2)
+
+##Plotting the estimated mortalities from drug overdoses in 2014.
 ```
 
 #Side-by-Side
@@ -73,5 +83,7 @@ map("county",regions = drugs2014$polyname,col=my.colors2014,exact = TRUE,fill = 
 map("state",col="White",fill=FALSE,resolution=0,add = TRUE, projection = "mercator")
 title("2014 Drug Poisoning Mortalities Per 100,000 Population")
 legend("bottomleft", legend = c("0-2","2.1-4","4.1-6", "6.1-8", "8.1-10", "10.1-12","12.1-14", "14.1-16", "16.1-18", "18.1-20",">20"), fill = my.colors, col = my.colors2014, title = "Estimated Drug Mortalities Per Color",cex = .75,ncol = 2)
+
+##Plotting 2004 and 2014 drug overdose mortalities side-by-side.
 ```
 
